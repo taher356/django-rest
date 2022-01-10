@@ -13,7 +13,6 @@ class ReviewSerializer(serializers.ModelSerializer):
             'name',
             'email',
             'comment',
-            'review',
             'rating',
             'created_at'
         )
