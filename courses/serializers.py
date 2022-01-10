@@ -3,7 +3,7 @@ from rest_framework import serializers
 from . import models
 
 class ReviewSerializer(serializers.ModelSerializer):
-    class meta:
+    class Meta:
         extra_kwargs = {
             'email': {'write_only': True}
         }
@@ -20,7 +20,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = models.Review
 
 class CourseSerializer(serializers.ModelSerializer):
-    class meta:
+    class Meta:
         fields = (
             'id',
             'title',
