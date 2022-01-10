@@ -1,14 +1,16 @@
 #from django.shortcuts import render  because we dont need rendering in rest
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from django.db.models.query import QuerySet
+from rest_framework import generics
 
 from . import models
 from . import serializers
 
-class ListCourse(APIView):
-    def get(self, request, format=None):
-        courses = models.Course.objects.all()
-        serializer = serializers.CourseSerializer(courses,many=True)
-        return Response(serializer.data)
- 
+class ListCreateCourse(generics.ListCreateAPIView):
+    queryset = models.Course.objects.all()
+    serializer_class = serializers.CourseSerializer
+
+class RetriveUpdateDestroyCourse(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.Course.objects.all()
+    serializer_class = serializers.CourseSerializer
+    
+    
