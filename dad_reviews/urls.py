@@ -20,8 +20,8 @@ from rest_framework import routers
 from courses import views
 
 router = routers.SimpleRouter()
-router.register(r'courses',views.CourseViewSet,)
-router.register(r'reviews',views.ReviewViewSet,)
+router.register(r'courses',views.CourseViewSet)
+router.register(r'reviews',views.ReviewViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
