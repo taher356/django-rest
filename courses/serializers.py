@@ -17,6 +17,13 @@ class ReviewSerializer(serializers.ModelSerializer):
             'created_at'
         )
         model = models.Review
+    
+    def validate_rating(self,value):
+        if value in range(1,6):
+            return value
+        raise serializers.ValidationError(
+            'rating must be between 1 and 5'
+        )
 
 class CourseSerializer(serializers.ModelSerializer):
     reviews = serializers.PrimaryKeyRelatedField(
